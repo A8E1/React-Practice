@@ -44,13 +44,11 @@ function Board( {xIsNext, squares, onPlay} ) {
     
     if(xIsNext){
       nextSquares[index] = "X"
-      setXIsNext(false)
     } else {
       nextSquares[index] = "O"
-      setXIsNext(true)
     }
     
-    setSquares(nextSquares)
+    onPlay(nextSquares)
   }
   
   const winner = calculateWinner(squares)
