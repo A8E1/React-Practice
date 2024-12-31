@@ -19,7 +19,12 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null))
 
   function handleClick(index){
+    
+    if(squares[i])
+      return
+
     const nextSquares = squares.slice()
+    
     if(xIsNext){
       nextSquares[index] = "X"
       setXIsNext(false)
@@ -27,6 +32,7 @@ export default function Board() {
       nextSquares[index] = "O"
       setXIsNext(true)
     }
+    
     setSquares(nextSquares)
   }
   
