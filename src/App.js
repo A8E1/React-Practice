@@ -30,7 +30,7 @@ export default function Board() {
       [2, 4, 6]
     ]
 
-    for (let i = 0; i < lines.length(); i++){
+    for (let i = 0; i < lines.length; i++){
       const [a, b, c] = lines[i]
       if(squares[a] && squares[a] == squares[b] && squares[a] == squares[c])
         return squares[a]
@@ -40,7 +40,7 @@ export default function Board() {
 
   function handleClick(index){
     
-    if(squares[i])
+    if(squares[index] || calculateWinner(squares))
       return
 
     const nextSquares = squares.slice()
@@ -56,7 +56,7 @@ export default function Board() {
     setSquares(nextSquares)
   }
   
-  const winnner = calculateWinner(squares)
+  const winner = calculateWinner(squares)
   let status
   if(winner){
     status = "Winner: " + winner
